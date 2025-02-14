@@ -1,0 +1,18 @@
+select * from orderdetails;
+
+#check maggi 
+SELECT * from orderdetails where productname="Maggi Noodles";
+
+#who have ordered maggi of 5 or more quantities
+select * from orderdetails where productname="Maggi Noodles" and quantity>=5;
+
+select *, quantity*priceperunit as total_amount from orderdetails;
+
+select sum(quantity*priceperunit) as total_rev from orderdetails;
+
+#total quantity ordered of maggi noodles
+select sum(quantity) from orderdetails where productname="Maggi Noodles";
+
+#total quantity ordered of each product
+select productname,sum(quantity) as total_quantity from orderdetails
+group by productname order by total_quantity asc;
