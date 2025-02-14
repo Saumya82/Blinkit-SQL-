@@ -1,0 +1,31 @@
+select * from customers;
+
+# all customers from mumbai 
+select * from customers where city="Mumbai";
+
+# all customers who live either in mumbai or in pune
+select * from customers where city ="Mumbai" or city="Pune";
+
+#all customers who live either in mumbai or pune or delhi
+select * from customers where city in ("Mumbai", "Pune","Delhi");
+
+# all customers except from mumbai
+select * from customers where not city="Mumbai";
+
+#all customers except from mumbai & pune
+select * from customers where not (city="Mumbai" or city ="Pune");
+
+#those people whose name starts with A
+select * from customers where name like "a%";
+
+#those people whose name ends with y
+select * from customers where name like "%y";
+
+#those people whose contains dd
+select * from customers where name like "%dd%";
+
+#those people whose phone number contains 11
+select * from customers where phone like "%11%";
+
+#how many customers from each city
+select city,COUNT(customers.customerid) from customers group by city;
